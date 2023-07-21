@@ -11,6 +11,7 @@ tracker = {
         "request_time": "2023-06-25T16:03:24.722256",
         "browser_type": "Firefox",
         "operating_system": "Windows 11",
+        "service_name": "Fastapi_service",
     }
 
 message =('127.0.0.1',
