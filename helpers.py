@@ -14,6 +14,7 @@ def to_dict(psycopg_tuple:tuple):
     tracker["browser_type"] = psycopg_tuple[6]
     tracker["operating_system"] = psycopg_tuple[7]
     tracker["request_time"] = psycopg_tuple[8].strftime("%d-%m-%Y, %H:%M:%S")
+    tracker["service_name"] = psycopg_tuple[9]
     return tracker
 
 
