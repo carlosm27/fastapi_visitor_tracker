@@ -14,16 +14,6 @@ tracker = {
         "service_name": "Fastapi_service",
     }
 
-message =('127.0.0.1',
-             'http://localhost:8000',
-             8000,
-             "/",
-             "GET",
-             "Edge",
-             "Windows 11",
-             "2023-06-25T16:03:24.722256"
-             )
-
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel()
 channel.queue_declare(queue='logs')
