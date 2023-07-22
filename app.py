@@ -17,7 +17,7 @@ async def startup():
     connection = await aio_pika.connect("amqp://guest:guest@localhost/", loop = loop)
     channel =  await connection.channel()
     queue = await channel.declare_queue("logs")
-    await queue.consume(on_message)
+    await queue.consume(on_message, no_ack=True)
 
 
 
