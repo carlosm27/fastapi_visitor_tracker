@@ -8,13 +8,11 @@ def to_dict(psycopg_tuple:tuple):
     tracker["ip_address"] = psycopg_tuple[1]
     tracker["request_url"] = psycopg_tuple[2]
     tracker["request_port"] = psycopg_tuple[3]
-
     tracker["request_path"] = psycopg_tuple[4]
     tracker["request_method"] = psycopg_tuple[5]
     tracker["browser_type"] = psycopg_tuple[6]
-    tracker["operating_system"] = psycopg_tuple[7]
-    tracker["request_time"] = psycopg_tuple[8].strftime("%d-%m-%Y, %H:%M:%S")
-    tracker["service_name"] = psycopg_tuple[9]
+    tracker["request_time"] = psycopg_tuple[7].strftime("%d-%m-%Y, %H:%M:%S")
+    tracker["service_name"] = psycopg_tuple[8]
     return tracker
 
 
