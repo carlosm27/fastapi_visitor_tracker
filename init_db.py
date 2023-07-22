@@ -25,7 +25,6 @@ cur.execute('CREATE TABLE logs (id serial PRIMARY KEY,'
                                  'request_path varchar (50) NOT NULL,'
                                  'request_method varchar (50) NOT NULL,'
                                  'browser_type varchar (150) NOT NULL,'
-                                 'operating_system varchar (150) NOT NULL,'
                                  'request_time timestamp (50) NOT NULL,'
                                  'service_name varchar (150) NOT NULL,'
 
@@ -38,17 +37,15 @@ cur.execute('INSERT INTO logs (ip_address,'
                                  'request_path,'
                                  'request_method,'
                                  'browser_type,'
-                                 'operating_system,'
                                  'request_time,'
                                  'service_name)'
-                                 'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)',
+                                 'VALUES (%s, %s, %s, %s, %s, %s, %s, %s)',
             ('127.0.0.1',
              'http://localhost:8000',
              8000,
              "/",
              "GET",
              "Chrome",
-             "Windows 11",
              "2023-06-25T16:03:24.722256",
              "Test_data_service"
              )
