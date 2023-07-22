@@ -20,20 +20,18 @@ def new_log(ip_address: str,
          request_path: str,
          request_method: str,
          browser_type: str,
-         operating_system: str,
          request_time: str,
-         service_name:str):
+         service_name:str,):
 
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute('INSERT INTO logs (ip_address, request_url, request_port, request_path, request_method, browser_type, operating_system, request_time, service_name)'
-                    'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING *;',(ip_address,
+    cur.execute('INSERT INTO logs (ip_address, request_url, request_port, request_path, request_method, browser_type, request_time, service_name)'
+                    'VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING *;',(ip_address,
                                                     request_url,
                                                     request_port,
                                                     request_path,
                                                     request_method,
                                                     browser_type,
-                                                    operating_system,
                                                     request_time,
                                                     service_name))
 
