@@ -35,7 +35,7 @@ async def startup():
 
 
 
-@app.get("/message")
+@app.get("/logs")
 async def receiver():
     logs = all_logs()
     return logs
