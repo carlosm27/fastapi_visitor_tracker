@@ -1,7 +1,7 @@
-from robyn import Robyn, status_codes
+
 
 from fastapi import FastAPI
-from robyn.robyn import Response
+
 
 from controllers import all_logs, new_log
 import json    
@@ -9,7 +9,20 @@ import asyncio
 import aio_pika
 from consumer import on_message
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
+
+origins = ["*"]
+methods = ["GET", "POST", "PUT", "DELETE"]
+headers = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_methods=methods,
+    allow_headers=headers,
+)
 
 @app.on_event('startup')
 async def startup():
