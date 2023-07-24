@@ -1,17 +1,17 @@
 import React, { useState, useEffect} from "react";
 
-const url = "http://localhost:8000";
+const url = "http://localhost:8000/message";
 
 interface Table {
-  Id: number,
-  IpAddres: string,
-  RequestURL: string,
-  RequestPort: string,
-  RequestPath: string,
-  RequestMethod: string,
-  RequestTime: string,
-  BrowserType: string,
-  ServiceName: string,
+  id: number,
+  ip_address: string,
+  request_url: string,
+  request_port: string,
+  request_path: string,
+  request_method: string,
+  request_time: string,
+  browser_type: string,
+  service_name: string,
 }
 
 const Table: React.FC = () => {
@@ -22,6 +22,7 @@ const Table: React.FC = () => {
       fetch(url)  
         .then(res => res.json())
         .then(data => setData(data));
+        console.log(data);
     }, []);
 
 
@@ -29,32 +30,36 @@ const Table: React.FC = () => {
         <div>
           <h1>Logs</h1>
           <table>
-            <tr>
-              <th>IP Address</th>
-              <th>Request URL</th>
-              <th>Request Port</th>
-              <th>Request Path</th>
-              <th>Request Method</th>
-              <th>Request Time</th>
-              <th>Browser Type</th>
-              <th>Service Name</th>
-            </tr>
+            <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>IP Address</th>
+                  <th>Request URL</th>
+                  <th>Request Port</th>
+                  <th>Request Path</th>
+                  <th>Request Method</th>
+                  <th>Request Time</th>
+                  <th>Browser Type</th>
+                  <th>Service Name</th>
+                </tr>
+              </thead>  
 
 
-            {data.map(item => (
-              <tr key={item.Id}>
-
-                <td>{item.IpAddres}</td>     
-                <td>{item.RequestURL}</td>        
-                <td>{item.RequestPort}</td>  
-                <td>{item.RequestPath}</td>
-                <td>{item.RequestMethod}</td>
-                <td>{item.RequestTime}</td>
-                <td>{item.BrowserType}</td>  
-                <td>{item.ServiceName}</td> 
-                  
+            <tbody>
+            {data.map((item, index) => (
+              <tr key={index}> 
+                <td>{item.id}</td>  
+                <td>{item.ip_address}</td>     
+                <td>{item.request_url}</td>        
+                <td>{item.request_port}</td>  
+                <td>{item.request_path}</td>
+                <td>{item.request_method}</td>
+                <td>{item.request_time}</td>
+                <td>{item.browser_type}</td>  
+                <td>{item.service_name}</td>   
               </tr>
             ))}
+          </tbody>  
 
           </table>
 
@@ -63,3 +68,5 @@ const Table: React.FC = () => {
       );
 
 };
+
+export default Table;
